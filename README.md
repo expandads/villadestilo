@@ -27,7 +27,7 @@ Cada evento dispara 1x por sessão (sessionStorage `villa-d-px`).
 | QuizInicio | custom | clicou em começar |
 | QuizResposta | custom | cada resposta (`pergunta`, `resposta` A/B/C) |
 | Quiz25 / Quiz50 / Quiz75 / Quiz100 | custom | respondeu a 2ª / 4ª / 6ª / 8ª pergunta |
-| ViewContent | padrão | abriu a tela da oferta (R$ 49,90) |
+| ViewContent | padrão | abriu a tela da oferta (R$ 47) |
 | CliqueCheckout | custom | clicou em comprar, antes de ir pra Kiwify |
 
 InitiateCheckout (ao entrar no checkout) e Purchase (cartão aprovado) são disparados pela própria Kiwify quando o pixel está configurado no produto, conforme a [ajuda da Kiwify](https://help.kiwify.com/en/article/how-to-set-up-the-facebook-pixel-1oxa7i0/). Por isso o clique aqui é evento custom, pra não duplicar InitiateCheckout. O clique repassa os parâmetros da URL (utm_*, fbclid, src, sck) pro checkout `https://pay.kiwify.com.br/hlngerK`.
