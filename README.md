@@ -9,6 +9,7 @@ Quiz estático (sem build) publicado em https://villadestilo.vercel.app via GitH
 - `assets/img/`: WebP. Fotos em 3 larguras (`nome-640/960/1440.webp`), avatar, e-book, relatos
 - `assets/fonts/`: DM Sans e Cormorant Garamond (subset latin, woff2 variável)
 - `vercel.json`: cache de 1 ano (immutable) em `/assets`
+- `tools/build_img.py`: gera os recortes WebP (não é publicado, ver `.vercelignore`)
 
 ## Regras
 
@@ -29,4 +30,4 @@ Cada evento dispara 1x por sessão (sessionStorage `villa-d-px`).
 | ViewContent | padrão | abriu a tela da oferta (R$ 49,90) |
 | CliqueCheckout | custom | clicou em comprar, antes de ir pra Kiwify |
 
-InitiateCheckout e Purchase ficam com a Kiwify (pixel configurado no produto lá). O clique repassa os parâmetros da URL (utm_*, fbclid, src, sck) pro checkout `https://pay.kiwify.com.br/hlngerK`.
+InitiateCheckout (ao entrar no checkout) e Purchase (cartão aprovado) são disparados pela própria Kiwify quando o pixel está configurado no produto, conforme a [ajuda da Kiwify](https://help.kiwify.com/en/article/how-to-set-up-the-facebook-pixel-1oxa7i0/). Por isso o clique aqui é evento custom, pra não duplicar InitiateCheckout. O clique repassa os parâmetros da URL (utm_*, fbclid, src, sck) pro checkout `https://pay.kiwify.com.br/hlngerK`.
