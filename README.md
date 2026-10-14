@@ -19,7 +19,7 @@ Quiz estático (sem build) publicado em https://villadestilo.vercel.app via GitH
 
 ## Meta Pixel 1658819022345400
 
-Abandono: compare as contagens em sequência (QuizInicio > QuizPergunta1 > ... > QuizPergunta8 > QuizDiagnostico > QuizRelatos > ViewContent > CliqueCheckout). A queda entre dois eventos é onde as pessoas saem.
+Abandono: compare as contagens em sequência (QuizInicio > Quiz25 > Quiz50 > Quiz75 > Quiz100 > QuizDiagnostico > QuizRelatos > ViewContent > CliqueCheckout). A queda entre dois eventos é onde as pessoas saem.
 
 Cada evento dispara 1x por sessão (sessionStorage `villa-d-px`).
 
@@ -27,7 +27,6 @@ Cada evento dispara 1x por sessão (sessionStorage `villa-d-px`).
 |---|---|---|
 | PageView | padrão | carregou a página |
 | QuizInicio | custom | clicou em começar |
-| QuizPergunta1 ... QuizPergunta8 | custom | respondeu aquela pergunta (param `resposta` A/B/C) |
 | Quiz25 / Quiz50 / Quiz75 / Quiz100 | custom | respondeu a 2ª / 4ª / 6ª / 8ª pergunta |
 | QuizDiagnostico | custom | viu a tela de diagnóstico |
 | QuizRelatos | custom | viu a tela de relatos |

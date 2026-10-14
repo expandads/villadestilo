@@ -12,7 +12,7 @@ function preloadSrc(src){if(preloaded.has(src))return;preloaded.add(src);const i
 /* Meta Pixel: each event fires once per session, even after back, review or restart. */
 const fired=(()=>{try{return new Set(JSON.parse(sessionStorage.getItem('villa-d-px')||'[]'))}catch{return new Set()}})();
 function track(key,name,params,standard){if(fired.has(key))return;fired.add(key);try{sessionStorage.setItem('villa-d-px',JSON.stringify([...fired]))}catch{}if(typeof fbq!=='function')return;standard?fbq('track',name,params):fbq('trackCustom',name,params)}
-function trackProgress(answered){track('q'+answered,'QuizPergunta'+answered,{resposta:String.fromCharCode(65+answers[answered-1])});const pct=Math.round(answered/questions.length*100);[25,50,75,100].forEach(m=>{if(pct>=m)track('p'+m,'Quiz'+m,{perguntas_respondidas:answered,total_perguntas:questions.length})})}
+function trackProgress(answered){const pct=Math.round(answered/questions.length*100);[25,50,75,100].forEach(m=>{if(pct>=m)track('p'+m,'Quiz'+m,{perguntas_respondidas:answered,total_perguntas:questions.length})})}
 const questions=[
  {
   "label": "Seu armário hoje",
