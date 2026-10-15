@@ -14,7 +14,7 @@ Quiz estático (sem build) publicado em https://villadestilo.vercel.app via GitH
 ## Regras
 
 - `/assets` tem cache immutable. Ao trocar um arquivo: **imagem/fonte** usa nome novo; **main.js** bumpa `?v=` no `index.html`.
-- Relatos (`relato-1..3.webp`) precisam manter 941x1672: os valores `top`/`bottom` em `proofItems` são em pixels dessa resolução.
+- Relatos (`relato-quiz-ebook`, `relato-look-pronto`, `relato-looks-semana`.webp) precisam manter 941x1672: os valores `top`/`bottom` em `proofItems` são em pixels dessa resolução.
 - Foto de cada pergunta: campo `photo` em `questions` (main.js).
 
 ## Meta Pixel 1658819022345400

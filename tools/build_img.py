@@ -1,7 +1,8 @@
 # Gera as fotos WebP do quiz a partir dos originais.
 # Uso: py -3 -I tools/build_img.py <pasta-trabalho> assets/img
 # <pasta-trabalho>/src/A..E.png = originais em alta (A=Facetune 19-06-43, B=19-19-47, C=19-26-21, D=IMG_4881, E=IMG_4883)
-# <pasta-trabalho>/orig/asset4.png e asset5-7.webp = e-book e relatos extraidos do HTML antigo (commit fa5baf5)
+# <pasta-trabalho>/orig/asset4.png = e-book extraido do HTML antigo (commit fa5baf5)
+# <pasta-trabalho>/relatos/quiz, look, semana.jpeg = prints de relato (WhatsApp, 900x1600, recebidos em 15/10)
 # Foto nova: adicionar a fonte em src e uma linha em CROPS (fonte, centro x, topo y, altura, normalizados).
 import sys, os
 from PIL import Image, ImageDraw
@@ -70,6 +71,6 @@ av.resize((99, 99), Image.LANCZOS).save(f'{OUT}/avatar.webp', 'WEBP', quality=80
 p = Image.open(f'{S}/orig/asset4.png')
 p.resize((640, round(640 * p.height / p.width)), Image.LANCZOS).save(f'{OUT}/ebook-looks-inteligentes.webp', 'WEBP', quality=82, method=6)
 
-# proof screenshots: same 941x1672 dimensions (crop offsets in JS depend on it)
-for i, n in [(6, 1), (7, 2), (5, 3)]:
-    Image.open(f'{S}/orig/asset{i}.webp').save(f'{OUT}/relato-{n}.webp', 'WEBP', quality=80, method=6)
+# proof screenshots: resized to 941x1672 (crop offsets in JS depend on it)
+for k, n in [('quiz', 'quiz-ebook'), ('look', 'look-pronto'), ('semana', 'looks-semana')]:
+    Image.open(f'{S}/relatos/{k}.jpeg').convert('RGB').resize((941, 1672), Image.LANCZOS).save(f'{OUT}/relato-{n}.webp', 'WEBP', quality=80, method=6)
