@@ -14,12 +14,12 @@ Quiz estático (sem build) publicado em https://villadestilo.vercel.app via GitH
 
 - Visual no padrão Stories do Instagram: fonte do sistema (sem webfont), quiz como figurinha, botões azuis e compra em verde. Tocar na tela inicial começa o quiz; o terço esquerdo da foto nas perguntas volta.
 - `/assets` tem cache immutable. Ao trocar um arquivo: **imagem/fonte** usa nome novo; **main.js** bumpa `?v=` no `index.html`.
-- Relatos (`relato-quiz-ebook`, `relato-look-pronto`, `relato-looks-semana`.webp) precisam manter 941x1672: os valores `top`/`bottom` em `proofItems` são em pixels dessa resolução.
+- Relatos (`relato-quiz-ebook`, `relato-look-pronto`, `relato-looks-semana`.webp) precisam manter 941x1672: os valores `top`/`bottom` em `proofItems` são em pixels dessa resolução. Eles ficam num carrossel na seção Relatos da página de oferta (montado pelo main.js).
 - Foto de cada pergunta: campo `photo` em `questions` (main.js).
 
 ## Meta Pixel 1658819022345400
 
-Abandono: compare as contagens em sequência (QuizInicio > Quiz25 > Quiz50 > Quiz75 > Quiz100 > QuizDiagnostico > QuizRelatos > ViewContent > VerOferta > CliqueCheckout). A queda entre dois eventos é onde as pessoas saem.
+Abandono: compare as contagens em sequência (QuizInicio > Quiz25 > Quiz50 > Quiz75 > Quiz100 > QuizDiagnostico > ViewContent > QuizRelatos > VerOferta > CliqueCheckout). A queda entre dois eventos é onde as pessoas saem.
 
 Cada evento dispara 1x por sessão (sessionStorage `villa-d-px`).
 
@@ -29,8 +29,8 @@ Cada evento dispara 1x por sessão (sessionStorage `villa-d-px`).
 | QuizInicio | custom | tocou na tela inicial ou no botão começar |
 | Quiz25 / Quiz50 / Quiz75 / Quiz100 | custom | respondeu a 2ª / 4ª / 6ª / 8ª pergunta |
 | QuizDiagnostico | custom | viu a tela de diagnóstico |
-| QuizRelatos | custom | viu a tela de relatos |
 | ViewContent | padrão | abriu a tela da oferta (R$ 47) |
+| QuizRelatos | custom | a seção de relatos (prints) apareceu na tela da oferta. Até 28/10/26 era uma tela própria antes da oferta |
 | VerOferta | custom | a oferta final ("Você tem peças. Agora falta a lógica.") apareceu na tela, rolando ou pelo botão verde |
 | CliqueCheckout | custom | clicou em comprar, antes de ir pra Kiwify |
 
