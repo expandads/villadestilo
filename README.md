@@ -7,12 +7,12 @@ Quiz estático (sem build) publicado em https://villadestilo.vercel.app via GitH
 - `index.html`: markup + CSS crítico inline + Meta Pixel
 - `assets/js/main.js`: lógica do quiz, eventos do Pixel, checkout
 - `assets/img/`: WebP. Fotos em 3 larguras (`nome-640/960/1440.webp`), avatar, e-book, relatos
-- `assets/fonts/`: DM Sans e Cormorant Garamond (subset latin, woff2 variável)
 - `vercel.json`: cache de 1 ano (immutable) em `/assets`
 - `tools/build_img.py`: gera os recortes WebP (não é publicado, ver `.vercelignore`)
 
 ## Regras
 
+- Visual no padrão Stories do Instagram: fonte do sistema (sem webfont), quiz como figurinha, botões azuis e compra em verde. Tocar na tela inicial começa o quiz; o terço esquerdo da foto nas perguntas volta.
 - `/assets` tem cache immutable. Ao trocar um arquivo: **imagem/fonte** usa nome novo; **main.js** bumpa `?v=` no `index.html`.
 - Relatos (`relato-quiz-ebook`, `relato-look-pronto`, `relato-looks-semana`.webp) precisam manter 941x1672: os valores `top`/`bottom` em `proofItems` são em pixels dessa resolução.
 - Foto de cada pergunta: campo `photo` em `questions` (main.js).
@@ -26,7 +26,7 @@ Cada evento dispara 1x por sessão (sessionStorage `villa-d-px`).
 | Evento | Tipo | Quando |
 |---|---|---|
 | PageView | padrão | carregou a página |
-| QuizInicio | custom | clicou em começar |
+| QuizInicio | custom | tocou na tela inicial ou no botão começar |
 | Quiz25 / Quiz50 / Quiz75 / Quiz100 | custom | respondeu a 2ª / 4ª / 6ª / 8ª pergunta |
 | QuizDiagnostico | custom | viu a tela de diagnóstico |
 | QuizRelatos | custom | viu a tela de relatos |
